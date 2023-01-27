@@ -17,7 +17,7 @@ first_content = requests.get(URL).text
 while True:
     current_content = requests.get(URL).text
     soup = BeautifulSoup(current_content, 'html.parser')
-    navlist = soup.select('.navlist')
+    navlist = soup.select('.navlist') # = soup.find_all("div", attrs={"class":"DetailsArea_L"}) kullanabilirsiniz değişiklik gösteriyor
     if current_content != first_content or (navlist and navlist != first_navlist):
         params = {
             'chat_id': CHAT_ID,
